@@ -1,0 +1,19 @@
+{
+  "name": "medina_spreadsheet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "google-spreadsheet": "^3.0.11",
+    "googleapis": "^39.2.0",
+    "nodemon": "^2.0.3",
+    "util.promisify": "^1.0.1"
+  }
+}
