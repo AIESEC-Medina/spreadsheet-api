@@ -11,5 +11,5 @@ exports.googleSheetRun = async (sheetId, rangeName) => {
     range: rangeName,
   };
   const data = (await gsapi.spreadsheets.values.get(options)).data.values;
-  TransformApi(data, options);
+  return TransformApi(data, options);
 };

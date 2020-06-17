@@ -12,6 +12,7 @@ exports.TransformApi = async (data, opt) => {
     ...accumulator,
     [Objectproperties[index]]: currentValue,
   }), {}));
-
-  const reverseTransform = (objects) => objects.map((dict) => Object.values(dict));
+  return objects;
 };
+
+exports.reverseTransform = (objects) => objects.map((dict) => Object.values(dict));
