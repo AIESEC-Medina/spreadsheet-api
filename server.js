@@ -7,7 +7,6 @@ const app = express();
 app.use(express.json());
 const router = express.Router();
 
-const port = process.env.PORT || 8000;
 const server = http.createServer(app);
 
 client.authorize(async (err) => {
@@ -21,7 +20,7 @@ client.authorize(async (err) => {
     }),
   );
 
-  server.listen(port, () => {
+  server.listen(process.env.PORT, () => {
     console.log(`> 🚀 Ready on http://localhost:${process.env.PORT}`);
   });
 });
