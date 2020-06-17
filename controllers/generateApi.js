@@ -1,13 +1,15 @@
-const { google } = require("googleapis");
-const auth = require("./auth-client");
-const gsapi = google.sheets({ version: "v4", auth: auth.client });
-const { TransformApi } = require("./TransformApi");
+const { google } = require('googleapis');
+
+const { client } = require('./auth-client');
+const { TransformApi } = require('./transformApi');
+
+const gsapi = google.sheets({ version: 'v4', auth: client });
 
 exports.googleSheetRun = async (sheetId, rangeName) => {
   const options = {
     spreadsheetId: sheetId,
     range: rangeName,
   };
-  let data = (await gsapi.spreadsheets.values.get(options)).data.values;
-  TransformApi(data, options);
+  const data = (await gsapi.spreadsheets.values.get(options)).data.values;
+  return TransformApi(data, options);
 };
