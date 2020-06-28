@@ -3,11 +3,12 @@ const auth = require('./auth-client');
 
 const gsapi = google.sheets({ version: 'v4', auth: auth.client });
 
-exports.TransformApi = async (data, opt) => {
+exports.TransformApi = async (data, opt, rowColumn) => {
   const Objectproperties = (
     await gsapi.spreadsheets.values.get(opt)
-  ).data.values[0].map((val) => val.replace(/\s/g, ''));
-  const rows = data.filter((currentRow, index) => index != 0);
+  ).data.values[rowColumn].map((val) => val.replace(/\s/g, ''));
+
+  const rows = data.filter((_, index) => index !== 0);
   const objects = rows.map((array) => array.reduce((accumulator, currentValue, index) => ({
     ...accumulator,
     [Objectproperties[index]]: currentValue,

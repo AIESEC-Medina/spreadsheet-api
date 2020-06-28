@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const http = require('http');
 const express = require('express');
 const { client } = require('./controllers/auth-client');
@@ -11,7 +12,7 @@ const server = http.createServer(app);
 
 client.authorize(async (err) => {
   if (err) return;
-  const data = await googleSheetRun('12OSu-GEmTptpNme1Kv3xtxvOezirdLZ1hhEIudtucH4', 'SIGN-UPs');
+  const data = await googleSheetRun('12OSu-GEmTptpNme1Kv3xtxvOezirdLZ1hhEIudtucH4', 'SIGN-UPs', 0);
 
   app.use(
     '/',
