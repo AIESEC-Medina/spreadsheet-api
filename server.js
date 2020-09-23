@@ -12,7 +12,7 @@ const server = http.createServer(app);
 
 client.authorize(async (err) => {
   if (err) return;
-  const data = await googleSheetRun('12OSu-GEmTptpNme1Kv3xtxvOezirdLZ1hhEIudtucH4', 'SIGN-UPs', 0);
+  const data = await googleSheetRun('', 'SIGN-UPs', 0);
 
   app.use(
     '/',
